@@ -12,7 +12,7 @@ Pipe this into a concatenated file to grab anything that looks like an IP addres
 
   `scp.sh`
 
-I personally hate the scp syntax so I made this to avoid using it entirely. The best way to use it is to make a copy of the script for each server you intend on establishing a copy relationship with, and editing the OPTIONS lines accordingly. These can definitely be exploited for privilege escalation, so just keep them on a thumb drive to minimize exposure in that regard.
+I personally hate the scp syntax so I made this to avoid using it entirely. The best way to use it is to make a copy of the script for each server you intend on establishing a copy relationship with, and editing the OPTIONS lines accordingly. These can probably be exploited for privilege escalation, so just keep them on a thumb drive to minimize exposure in that regard.
 
 
 
