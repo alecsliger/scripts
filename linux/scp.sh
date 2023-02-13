@@ -45,8 +45,5 @@ elif [ $TOFROM == "2" ]; then
 
 
 ## Invalid choice exit
-else
-
-	echo "Please select either 1 or 2"
-	read TOFROM
+else[]
 fi
