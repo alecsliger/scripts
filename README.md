@@ -21,3 +21,12 @@ I personally hate the scp syntax so I made this to avoid using it entirely. The 
   `MoveSubfilesToMain.bat`
 
 Self explanitory
+
+
+
+  `GitSystemSpecs.ps1`
+
+Executes a set of commands to output a very specific set of system specifications and Windows key(s) in CSV format
+
+One liner:
+powershell -ExecutionPolicy Bypass -Command "[scriptblock]::Create((Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/alecsliger/scripts/main/Windows/GitSystemSpecs.ps1").Content).Invoke();"
