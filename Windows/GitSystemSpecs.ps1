@@ -1,6 +1,3 @@
-# Locate directory of this script and get drive letter
-$OUTPUT_PATH_1 = Split-Path -Path $PSScriptRoot -Qualifier
-
 # Get all info required from Get-ComputerInfo and store to var
 $ALLINFO = Get-ComputerInfo -Property CsDNSHostName, WindowsRegisteredOwner, BiosSeralNumber, CsManufacturer, CsModel, CsProcessors, CsPhyicallyInstalledMemory, WindowsProductName
 
@@ -102,7 +99,6 @@ $BIOSKEY = $BIOSKEY[2]
 # Simplify path variables for 'specs' and temp file (Driveletter \ Hostname)
 $SPECS = "$env:TEMP\specs.txt"
 $PC_INFO = "$env:TEMP\specs1.txt"
-$PC_INFO_FINAL = "$($OUTPUT_PATH_1)\$($DNSHOST)specs.txt" 
 
 # Insert '.' for blank cells x2
 Write-Output '.,.,' > $SPECS
@@ -125,8 +121,10 @@ Write-Output $BIOSKEY | Out-string >> $SPECS
 
 # Ghetto CSV
 (Get-Content $SPECS) -join "," >> $PC_INFO
-(Get-Content $PC_INFO) -replace ',,',',' >> $PC_INFO_FINAL
-Move-Item $PC_INFO_FINAL "$($OUTPUT_PATH_1)\$($DNSHOST)specs.csv"
+$FINALOUTPUT = (Get-Content $PC_INFO) -replace ',,',','
+Write-Host "############################################## BEGIN CSV ##############################################"
+Write-Host $FINALOUTPUT
+Write-Host "############################################## END CSV ##############################################"
 
 # Cleanup
 Remove-Item $SPECS
