@@ -29,4 +29,6 @@ Self explanitory
 Executes a set of commands to output a very specific set of system specifications and Windows key(s) in CSV format
 
 One liner:
+```
 powershell -ExecutionPolicy Bypass -Command "[scriptblock]::Create((Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/alecsliger/scripts/main/Windows/GitSystemSpecs.ps1").Content).Invoke();"
+```

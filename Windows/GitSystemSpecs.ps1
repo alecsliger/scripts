@@ -56,8 +56,7 @@ If ($RAM_DDR -eq $DDR) {
         $RAM_DDR = 'DDR3'
 }ElseIf ($RAM_DDR -eq $DDR4) {
         $RAM_DDR = 'DDR4'
-}Else {
-}
+}Else {}
 $RAM_DDR = [string]::join(" ",($RAM_DDR.Split(" ")))
 
 # Get RAM clock and format
@@ -122,9 +121,9 @@ Write-Output $BIOSKEY | Out-string >> $SPECS
 # Ghetto CSV
 (Get-Content $SPECS) -join "," >> $PC_INFO
 $FINALOUTPUT = (Get-Content $PC_INFO) -replace ',,',','
-Write-Host "############################################## BEGIN CSV ##############################################"
+Write-Host "`n ############################################## BEGIN CSV ############################################## `n"
 Write-Host $FINALOUTPUT
-Write-Host "############################################## END CSV ##############################################"
+Write-Host "`n ############################################### END CSV ############################################### `n"
 
 # Cleanup
 Remove-Item $SPECS
