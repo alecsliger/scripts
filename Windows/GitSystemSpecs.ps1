@@ -74,7 +74,7 @@ $RAMGB = $RAMGB | Out-String
 $RAMGB= [int64]$RAMGB
 $RAMGB = ($RAMGB/1024)/1024
 
-#Get RAM total slots and format
+# Get RAM total slots and format
 $RAM_SLOTS = Get-WmiObject -Class "Win32_PhysicalMemoryArray" | Select-Object MemoryDevices | Format-List | Out-String
 $RAM_SLOTS = $RAM_SLOTS.Split('',[System.StringSplitOptions]::RemoveEmptyEntries)
 $RAM_SLOTS = $RAM_SLOTS[2]
@@ -117,7 +117,7 @@ Write-Output $RAMGB'GB' | Out-string >> $SPECS
 Write-Output $DISK_SIZE_INT'GB' | Out-string >> $SPECS
 Write-Output $WINVER | Out-string >> $SPECS
 
-#Append key to textfile
+# Append key to textfile
 Write-Output $BIOSKEY | Out-string >> $SPECS
 
 # Ghetto CSV
