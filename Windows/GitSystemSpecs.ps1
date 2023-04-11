@@ -123,9 +123,9 @@ Write-Output $BIOSKEY | Out-string >> $SPECS
 # Ghetto CSV
 (Get-Content $SPECS) -join "," >> $PC_INFO
 $FINALOUTPUT = (Get-Content $PC_INFO) -replace ',,',','
-Write-Host "`n ############################################## BEGIN CSV ############################################## `n"
+#Write-Host "`n ############################################## BEGIN CSV ############################################## `n"
 Write-Host $FINALOUTPUT
-Write-Host "`n ############################################### END CSV ############################################### `n"
+#Write-Host "`n ############################################### END CSV ############################################### `n"
 
 # Cleanup
 Remove-Item $SPECS
